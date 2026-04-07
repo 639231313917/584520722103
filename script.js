@@ -2,6 +2,7 @@ const nameInput = document.getElementById('nameInput');
 const titleInput = document.getElementById('titleInput');
 const outputCode = document.getElementById('outputCode');
 const copyBtn = document.getElementById('copyBtn');
+const downloadBtn = document.getElementById('downloadBtn');
 
 const customSelect = document.getElementById('customSelect');
 const profileSelectTrigger = document.getElementById('profileSelectTrigger');
@@ -82,6 +83,24 @@ copyBtn.addEventListener('click', () => {
         copyBtn.textContent = 'Copied';
         setTimeout(() => copyBtn.textContent = originalText, 2000);
     });
+});
+
+downloadBtn.addEventListener('click', () => {
+    if (!outputCode.value) return;
+    
+    const name = nameInput.value.trim() || 'signature';
+    const filename = `${name}.html`;
+    const blob = new Blob([outputCode.value], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 });
 
 init();
