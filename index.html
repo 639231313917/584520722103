@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label>Select Yourself:</label>
+            <div class="custom-select-wrapper" id="customSelect">
+                <div class="custom-select-trigger" id="profileSelectTrigger">Choose a profile...</div>
+                <div class="custom-options" id="customOptionsContainer"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="nameInput">Name:</label>
+            <input type="text" id="nameInput" placeholder="Enter name">
+        </div>
+
+        <div class="form-group">
+            <label for="titleInput">Title:</label>
+            <input type="text" id="titleInput" placeholder="Enter title">
+        </div>
+
+        <div class="form-group output-group">
+            <label for="outputCode">Signature Code:</label>
+            <textarea id="outputCode" readonly></textarea>
+        </div>
+
+        <button id="copyBtn">Copy Signature</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
