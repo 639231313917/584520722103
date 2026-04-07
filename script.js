@@ -30,14 +30,15 @@ function populateProfiles() {
     profiles.forEach((profile, index) => {
         const option = document.createElement('div');
         option.classList.add('custom-option');
-        option.textContent = `${profile.name} - ${profile.title}`;
+        
+        option.innerHTML = `<span style="color: #ffffff;">${profile.name}</span> <span style="color: #9e9e9e;">- ${profile.title}</span>`;
         
         option.addEventListener('click', function() {
             const allOptions = document.querySelectorAll('.custom-option');
             allOptions.forEach(opt => opt.classList.remove('selected'));
             
             this.classList.add('selected');
-            profileSelectTrigger.textContent = this.textContent;
+            profileSelectTrigger.innerHTML = this.innerHTML;
             customOptionsContainer.classList.remove('open');
             
             nameInput.value = profile.name;
